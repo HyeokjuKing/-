@@ -86,6 +86,9 @@ class main():
                 ask_reuse = str(input("거스름돈을 반환하시겠습니까?\n"))  # 거스름돈을 재사용할것인지 질문
                 if (ask_reuse == "네"):  # 거스름돈 반환
                     drink_list2[drink_select] -= 1
+                    change_list['1000원'] -= self.count_1000  # 잔돈재고 제거하기
+                    change_list['500원'] -= self.count_500
+                    change_list['100원'] -= self.count_100
                     break       #구매완료
 
                 elif (ask_reuse == "아니오"):  # 거스름돈 재사용
@@ -117,9 +120,6 @@ class main():
             print("거스름돈은 %d원 %d장" % (1000, self.count_1000),
                   "%d원 %d개" % (500, self.count_500), "%d원 %d개\n" % (100, self.count_100))
             print("총", self.change_data, "원 입니다")     #거스름돈 저장했던 변수 출력
-            change_list['1000원'] -= self.count_1000       #잔돈재고 제거하기
-            change_list['500원'] -= self.count_500
-            change_list['100원'] -= self.count_100
 
 
 def start():      #시작
